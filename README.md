@@ -1,3 +1,6 @@
+Image Processiong Api </br>
+build an api for render Images with additional sizes specification</br>
+
 **Scripts**</br> </br>
 Install: npm install  </br>
 Build: npm run build  </br>
