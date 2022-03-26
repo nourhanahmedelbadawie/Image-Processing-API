@@ -19,7 +19,7 @@ http://localhost:3000/images </br>
 
 **Expected query arguments are:** </br>
 
-names: Available names are [1,2] </br>
+names: Available names are [fjord,fjordr] </br>
 width </br>
 height </br> </br>
 

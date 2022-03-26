@@ -10,4 +10,6 @@ describe('Testing Images endpoint', () => {
   it('name of Images not exit', async () => {
     await request.get('/images').expect(400)
   })
+  
 })
+
