@@ -1,9 +1,9 @@
-import { Router, Request, Response } from 'express'
+import { Router } from 'express'
 import images_path from './api/images'
 
 const routes = Router()
 
-routes.get('/', (req: Request, res: Response) : void=> {
+routes.get('/', (req: any, res: any): void => {
   res.send('working')
 })
 routes.use('/images', images_path)

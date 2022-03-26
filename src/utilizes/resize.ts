@@ -7,7 +7,8 @@ export const resizeImage = (
   image: string,
   width: number | undefined,
   height: number | undefined
-) : unknown=> {
+): any => {
+  console.log(name, image, width, height)
   const readStream = fs.createReadStream(image)
   let transform = sharp()
 

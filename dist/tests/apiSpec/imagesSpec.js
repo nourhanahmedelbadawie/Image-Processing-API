@@ -17,7 +17,7 @@ const index_1 = __importDefault(require("../../index"));
 const request = (0, supertest_1.default)(index_1.default);
 describe('Testing Images endpoint', () => {
     it('Image name right', () => __awaiter(void 0, void 0, void 0, function* () {
-        yield request.get('/images?name=1').expect(200);
+        yield request.get('/images?name=fjord&width=100&height=100').expect(200);
     }));
     it('name of Images not exit', () => __awaiter(void 0, void 0, void 0, function* () {
         yield request.get('/images').expect(400);

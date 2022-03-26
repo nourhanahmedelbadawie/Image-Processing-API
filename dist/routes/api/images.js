@@ -8,7 +8,7 @@ const path_1 = __importDefault(require("path"));
 const utitlize_1 = require("../../utilizes/utitlize");
 const resize_1 = require("../../utilizes/resize");
 const images_path = (0, express_1.Router)();
-let allImages = ['1', '2'];
+let allImages = ['fjord', 'fjord'];
 images_path.get('/', (req, res) => {
     let imageName = req.query.name;
     const imagePath = path_1.default.resolve('./') + `/images/${req.query.name}.jpg`;
@@ -19,6 +19,19 @@ images_path.get('/', (req, res) => {
     if (req.query.name === undefined) {
         return res.status(400).send('image not exist');
     }
+    if (!req.query.name || !req.query.width || !req.query.height) {
+        return res
+            .status(400)
+            .send('Please provide all specifications [ name , width , height]');
+    }
+    if (!/^[a-zA-Z]+$/.test(req.query.name) ||
+        !/^\d+$/.test(req.query.width) ||
+        !/^\d+$/.test(req.query.height))
+        return res
+            .status(404)
+            .send('Please provide name as string and width , height as numbers');
+    if (req.query.width <= 0 || req.query.height <= 0)
+        return res.status(4040).send(' width , height as must be > 0');
     if (allImages.includes(imageName) === false) {
         return res.status(404).send('not found');
     }
