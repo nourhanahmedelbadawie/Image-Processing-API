@@ -1,4 +1,4 @@
-import express, { Router  } from 'express'
+import express, { Router } from 'express'
 import path from 'path'
 import { checkForImageExist } from '../../utilizes/utitlize'
 import { resizeImage } from '../../utilizes/resize'
@@ -7,7 +7,7 @@ const images_path = Router()
 
 let allImages: string[] = ['fjord', 'fjord']
 
-images_path.get('/', (req: express.Request, res: express.Response): any => {
+images_path.get('/', (req: express.Request, res: express.Response) => {
   let imageName: string = req.query.name as string
 
   const imagePath = path.resolve('./') + `/images/${req.query.name}.jpg`
