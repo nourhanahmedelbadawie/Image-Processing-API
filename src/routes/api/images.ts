@@ -1,4 +1,4 @@
-import express, { Router } from 'express'
+import express, { Router  } from 'express'
 import path from 'path'
 import { checkForImageExist } from '../../utilizes/utitlize'
 import { resizeImage } from '../../utilizes/resize'
@@ -7,7 +7,7 @@ const images_path = Router()
 
 let allImages: string[] = ['fjord', 'fjord']
 
-images_path.get('/', (req: any, res: any): any => {
+images_path.get('/', (req: express.Request, res: express.Response): any => {
   let imageName: string = req.query.name as string
 
   const imagePath = path.resolve('./') + `/images/${req.query.name}.jpg`
@@ -35,7 +35,7 @@ images_path.get('/', (req: any, res: any): any => {
       .status(404)
       .send('Please provide name as string and width , height as numbers')
   if (req.query.width <= 0 || req.query.height <= 0)
-    return res.status(4040).send(' width , height as must be > 0')
+    return res.status(404).send(' width , height as must be > 0')
   if (allImages.includes(imageName) === false) {
     return res.status(404).send('not found')
   }

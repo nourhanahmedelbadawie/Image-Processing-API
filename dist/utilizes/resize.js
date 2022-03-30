@@ -8,7 +8,6 @@ const sharp = require('sharp');
 const fs = require('fs');
 const path_1 = __importDefault(require("path"));
 const resizeImage = (name, image, width, height) => {
-    console.log(name, image, width, height);
     const readStream = fs.createReadStream(image);
     let transform = sharp();
     if (width || height) {
