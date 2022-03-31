@@ -30,7 +30,7 @@ images_path.get('/', (req, res) => {
         return res
             .status(404)
             .send('Please provide name as string and width , height as numbers');
-    if (req.query.width <= 0 || req.query.height <= 0)
+    if (parseInt(req.query.width) <= 0 || parseInt(req.query.height) <= 0)
         return res.status(404).send(' width , height as must be > 0');
     if (allImages.includes(imageName) === false) {
         return res.status(404).send('not found');
@@ -43,6 +43,8 @@ images_path.get('/', (req, res) => {
         if (heightQuery) {
             height = parseInt(heightQuery);
         }
+        console.log('typeof');
+        console.log(typeof (0, resize_1.resizeImage)(imageName, imagePath, width, height));
         (0, resize_1.resizeImage)(imageName, imagePath, width, height).pipe(res);
     }
     else {
